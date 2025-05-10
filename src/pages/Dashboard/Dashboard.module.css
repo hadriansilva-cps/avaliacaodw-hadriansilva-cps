@@ -1,0 +1,83 @@
+.dashboard {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.dashboard h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard p {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.noposts {
+  text-align: center;
+  padding: 2rem;
+  border: 1px dashed #ccc;
+  border-radius: 10px;
+}
+
+.post_header {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-bottom: 2px solid #ccc;
+}
+
+.post_row {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.post_row p {
+  margin: 0;
+  font-weight: 500;
+  color: #333;
+}
+
+.post_row button,
+.post_row .btn {
+  margin-right: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.btn {
+  padding: 0.4rem 0.8rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #3498db;
+  border: 1px solid #3498db;
+}
+
+.btn-outline:hover {
+  background-color: #ecf6fd;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}

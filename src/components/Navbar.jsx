@@ -1,25 +1,60 @@
 import styles from './Navbar.module.css'
+import { useAuthValue } from "../context/AuthContext";
 import { NavLink } from "react-router-dom"
 
 const Navbar = () => {
-  return (
-    <>
-      <nav className={styles.navbar}>
+  const { user } = useAuthValue();
+    return(
+      <nav className={styles.Navbar}>
         <ul className={styles.links_list}>
-          <NavLink to="/" className={styles.brand} activeClassName={styles.active}>
-          <li><span>Life</span>Dev</li>
-          </NavLink>
-          <NavLink to="/login" className={styles.link} activeClassName={styles.active}>
-          <li>Login</li>
-          </NavLink>
-          <NavLink to="/register" className={styles.link} activeClassName={styles.active}>
-          <li>Register</li>
-          </NavLink>
-          <button className={styles.exit}>Exit</button>
-        </ul>
-      </nav>
-    </>
-  )
-}
+          <li>
+            <NavLink to="/" className={({ isActive }) => isActive ? styles.active : styles.brand}>
+            <span>life</span>
+            </NavLink>
+          </li>
 
-export default Navbar
+          {!user && (
+            <>
+              <li>
+                  <NavLink to="/login" className={({ isActive }) => isActive ? styles.active : styles.link}>
+                    Login
+                  </NavLink>
+              </li>
+              <li>
+                <NavLink to ="/register" className={({ isActive }) => isActive ? styles.active : styles.link}>                
+                  Register
+                </NavLink>
+              </li>
+
+            </>
+          )}
+
+         {user && (
+          <>
+           <li>
+            <NavLink to="/dashboard" className={({ isActive}) => isActive ? styles.active : styles.link}>
+                Dashboard
+            </NavLink>
+           </li>
+
+           <li>
+            <NavLink to="/create-post" className={({ isActive }) => isActive ? styles.active : styles.link}>
+                Nova Postagem
+            </NavLink>
+           </li>
+
+            <li>
+              <button className={styles.exit}>Sair</button> 
+            </li>
+
+          </>
+         )
+
+         }
+        </ul>
+
+      </nav>
+    )
+  }
+
+export default Navbar;
